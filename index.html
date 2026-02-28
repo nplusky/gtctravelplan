@@ -25,7 +25,7 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect } = React;
+        const { useState, useEffect, useMemo } = React;
 
         const Icon = ({ name, className = "w-6 h-6" }) => {
             useEffect(() => {
@@ -58,63 +58,65 @@
                 { date: '3/20', dayName: 'Fri', events: [{ id: 6, time: '12:00', location: 'SFO Airport', note: 'Return Flight', type: 'transport' }]}
             ]);
 
-            // 景點清單 (主要英文)
-            const attractions = [
-                { en: "Painted Ladies", zh: "彩繪女士", city: "SF", tag: "culture", desc: "維多利亞式房屋，六姊妹建築" },
-                { en: "Yosemite National Park", zh: "優勝美地", city: "CA", tag: "nature", desc: "壯麗峽谷與瀑布，世界遺產" },
-                { en: "Mission Dolores Park", zh: "多洛雷斯公園", city: "SF", tag: "popular", desc: "在地人最愛的野餐與市容觀賞地" },
-                { en: "Salesforce Park", zh: "空中花園", city: "SF", tag: "nature", desc: "絕美城市懸空森林公園" },
-                { en: "Fort Point View Point", zh: "堡壘觀點", city: "SF", tag: "popular", desc: "近距離觀看金門大橋底部最佳位置" },
+            // 景點清單 (已按 A-Z 排序)
+            const attractions = useMemo(() => [
                 { en: "Alcatraz Island", zh: "惡魔島", city: "SF", tag: "culture", desc: "歷史悠久的聯邦監獄所在地" },
-                { en: "Haight-Ashbury", zh: "海特艾許伯里", city: "SF", tag: "culture", desc: "嬉皮文化的發源地" },
-                { en: "North Beach", zh: "北灘", city: "SF", tag: "culture", desc: "小義大利區，充斥咖啡館與文化" },
-                { en: "Legion of Honor", zh: "榮譽軍團博物館", city: "SF", tag: "culture", desc: "收藏豐富的古典藝術博物館" },
                 { en: "Baker Beach", zh: "貝克海灘", city: "SF", tag: "nature", desc: "拍攝金門大橋最經典的海濱角度" },
-                { en: "Fisherman's Wharf", zh: "漁人碼頭", city: "SF", tag: "popular", desc: "海獅、美食與觀光中心" },
-                { en: "Transamerica Pyramid", zh: "泛美金字塔", city: "SF", tag: "popular", desc: "舊金山最具代表性的尖頂建築" },
-                { en: "City Lights Booksellers", zh: "城市之光書店", city: "SF", tag: "culture", desc: "垮掉的一代，獨立書店精神標竿" },
-                { en: "Queen Wilhelmina Garden", zh: "威廉明娜女王花園", city: "SF", tag: "nature", desc: "鬱金香與風車的異國風情" },
-                { en: "Golden Gate Park", zh: "金門公園", city: "SF", tag: "nature", desc: "橫跨多個博物館與植物園的大型公園" },
                 { en: "Cable Car Museum", zh: "纜車博物館", city: "SF", tag: "culture", desc: "展示舊金山百年纜車的動力核心" },
                 { en: "Cable Car Ride", zh: "叮叮車體驗", city: "SF", tag: "popular", desc: "舊金山不可錯過的交通工具" },
-                { en: "Muir Woods", zh: "穆爾紅木林", city: "North Bay", tag: "nature", desc: "巨型紅木森林步道" },
                 { en: "Carmel-by-the-sea", zh: "卡梅爾小鎮", city: "Monterey", tag: "nature", desc: "如童話般的藝術家濱海小鎮" },
-                { en: "Ghirardelli Square", zh: "巧克力廣場", city: "SF", tag: "popular", desc: "巧克力控的朝聖地" },
-                { en: "Mission of San Francisco de Asis", zh: "聖方濟傳教站", city: "SF", tag: "culture", desc: "舊金山現存最古老建築" },
+                { en: "City Lights Booksellers", zh: "城市之光書店", city: "SF", tag: "culture", desc: "垮掉的一代，獨立書店精神標竿" },
                 { en: "Coit Tower", zh: "科伊特塔", city: "SF", tag: "popular", desc: "俯瞰灣區全景的絕佳高處" },
-                { en: "Ferry Building", zh: "渡輪大廈", city: "SF", tag: "popular", desc: "頂級美食市集與渡輪轉運站" },
-                { en: "Palace of Fine Arts", zh: "藝術宮", city: "SF", tag: "culture", desc: "古希臘風格的圓頂與廊柱景觀" },
-                { en: "Union Square", zh: "聯合廣場", city: "SF", tag: "popular", desc: "市中心商業購物與聖誕核心" },
-                { en: "PIER 39", zh: "39號碼頭", city: "SF", tag: "popular", desc: "著名的海獅群所在地" },
-                { en: "UC Berkeley", zh: "柏克萊大學", city: "East Bay", tag: "culture", desc: "頂尖學術氛圍與優美校園" },
-                { en: "The Tech Interactive", zh: "創新科技博物館", city: "San Jose", tag: "culture", desc: "位於聖荷西的互動科學中心" },
                 { en: "Computer History Museum", zh: "電腦歷史博物館", city: "Mountain View", tag: "culture", desc: "科技人的矽谷必訪點" },
-                { en: "Winchester Mystery House", zh: "溫徹斯特神秘屋", city: "San Jose", tag: "culture", desc: "充滿傳奇與怪異建築結構的老屋" },
+                { en: "Ferry Building", zh: "渡輪大廈", city: "SF", tag: "popular", desc: "頂級美食市集與渡輪轉運站" },
+                { en: "Fisherman's Wharf", zh: "漁人碼頭", city: "SF", tag: "popular", desc: "海獅、美食與觀光中心" },
+                { en: "Fort Point View Point", zh: "堡壘觀點", city: "SF", tag: "popular", desc: "近距離觀看金門大橋底部最佳位置" },
+                { en: "Ghirardelli Square", zh: "巧克力廣場", city: "SF", tag: "popular", desc: "巧克力控的朝聖地" },
+                { en: "Golden Gate Park", zh: "金門公園", city: "SF", tag: "nature", desc: "橫跨多個博物館與植物園的大型公園" },
+                { en: "Haight-Ashbury", zh: "海特艾許伯里", city: "SF", tag: "culture", desc: "嬉皮文化的發源地" },
+                { en: "Legion of Honor", zh: "榮譽軍團博物館", city: "SF", tag: "culture", desc: "收藏豐富的古典藝術博物館" },
                 { en: "Lick Observatory", zh: "利克天文台", city: "San Jose", tag: "nature", desc: "漢彌爾頓山頂的古老研究站" },
-                { en: "Santana Row", zh: "桑塔納行", city: "San Jose", tag: "popular", desc: "聖荷西最奢華的購物休閒街區" }
-            ];
+                { en: "Lombard Street", zh: "九曲花街", city: "SF", tag: "popular", desc: "世界上最彎曲的街道，佈滿鮮花與坡度景觀" },
+                { en: "Mission Dolores Park", zh: "多洛雷斯公園", city: "SF", tag: "popular", desc: "在地人最愛的野餐與市容觀賞地" },
+                { en: "Mission of San Francisco de Asis", zh: "聖方濟傳教站", city: "SF", tag: "culture", desc: "舊金山現存最古老建築" },
+                { en: "Muir Woods", zh: "穆爾紅木林", city: "North Bay", tag: "nature", desc: "巨型紅木森林步道" },
+                { en: "North Beach", zh: "北灘", city: "SF", tag: "culture", desc: "小義大利區，充斥咖啡館與文化" },
+                { en: "Painted Ladies", zh: "彩繪女士", city: "SF", tag: "culture", desc: "維多利亞式房屋，六姊妹建築" },
+                { en: "Palace of Fine Arts", zh: "藝術宮", city: "SF", tag: "culture", desc: "古希臘風格的圓頂與廊柱景觀" },
+                { en: "PIER 39", zh: "39號碼頭", city: "SF", tag: "popular", desc: "著名的海獅群所在地" },
+                { en: "Queen Wilhelmina Garden", zh: "威廉明娜女王花園", city: "SF", tag: "nature", desc: "鬱金香與風車的異國風情" },
+                { en: "Salesforce Park", zh: "空中花園", city: "SF", tag: "nature", desc: "絕美城市懸空森林公園" },
+                { en: "Santana Row", zh: "桑塔納行", city: "San Jose", tag: "popular", desc: "聖荷西最奢華的購物休閒街區" },
+                { en: "Sausalito", zh: "索薩利托", city: "North Bay", tag: "nature", desc: "風景如畫的濱海藝術小鎮，可遠眺舊金山天際線" },
+                { en: "The Tech Interactive", zh: "創新科技博物館", city: "San Jose", tag: "culture", desc: "位於聖荷西的互動科學中心" },
+                { en: "Transamerica Pyramid", zh: "泛美金字塔", city: "SF", tag: "popular", desc: "舊金山最具代表性的尖頂建築" },
+                { en: "UC Berkeley", zh: "柏克萊大學", city: "East Bay", tag: "culture", desc: "頂尖學術氛圍與優美校園" },
+                { en: "Union Square", zh: "聯合廣場", city: "SF", tag: "popular", desc: "市中心商業購物與聖誕核心" },
+                { en: "Winchester Mystery House", zh: "溫徹斯特神秘屋", city: "San Jose", tag: "culture", desc: "充滿傳奇與怪異建築結構的老屋" },
+                { en: "Yosemite National Park", zh: "優勝美地", city: "CA", tag: "nature", desc: "壯麗峽谷與瀑布，世界遺產" }
+            ], []);
 
-            // 餐廳清單 (主要英文)
-            const restaurants = [
+            // 餐廳清單 (已按 A-Z 排序)
+            const restaurants = useMemo(() => [
                 { en: "Arsicault Bakery", zh: "名廚烘培店", city: "SF", tag: "cafe", desc: "公認全美最佳可頌" },
+                { en: "Boudin Bakery", zh: "波丁酸麵包", city: "SF", tag: "restaurant", desc: "著名的酸麵包碗蛤蜊濃湯" },
+                { en: "Butter & Crumble", zh: "特色甜點", city: "SF", tag: "cafe", desc: "高顏值精緻糕點店" },
+                { en: "Cotogna", zh: "義式火烤料理", city: "SF", tag: "restaurant", desc: "米其林等級的精緻義大利菜" },
                 { en: "Del Popolo", zh: "拿坡里比薩", city: "SF", tag: "restaurant", desc: "獲獎無數的柴燒薄皮比薩" },
                 { en: "Fog Harbor Fish House", zh: "霧港魚屋", city: "SF", tag: "restaurant", desc: "碼頭必吃海鮮，風景絕佳" },
-                { en: "Butter & Crumble", zh: "特色甜點", city: "SF", tag: "cafe", desc: "高顏值精緻糕點店" },
-                { en: "The Buena Vista", zh: "愛爾蘭咖啡", city: "SF", tag: "restaurant", desc: "愛爾蘭咖啡在美發源地" },
-                { en: "The Boiling Crab", zh: "美式手抓海鮮", city: "SJ", tag: "restaurant", desc: "經典辣醬拌海鮮桶" },
-                { en: "Molinari Delicatessen", zh: "義式熟食店", city: "SF", tag: "restaurant", desc: "傳奇的三明治與義式火腿" },
-                { en: "The Mill", zh: "厚切吐司咖啡", city: "SF", tag: "cafe", desc: "極簡設計風格與手工麵包" },
-                { en: "Josey Baker Bread", en: "Josey Baker 麵包", city: "SF", tag: "cafe", desc: "酸種麵包狂熱者必訪" },
                 { en: "Jane The Bakery", zh: "珍之烘培", city: "SF", tag: "cafe", desc: "多樣化糕點與精緻早午餐" },
-                { en: "The Coffee Movement", zh: "咖啡運動", city: "SF", tag: "cafe", desc: "小巷裡的頂尖手沖體驗" },
-                { en: "Tony’s Pizza Napoletana", zh: "東尼比薩", city: "SF", tag: "restaurant", desc: "多屆比薩冠軍坐鎮" },
-                { en: "Shoji", zh: "莊司料理", city: "SJ", tag: "restaurant", desc: "聖荷西在地優質餐飲" },
+                { en: "Josey Baker Bread", zh: "Josey Baker 麵包", city: "SF", tag: "cafe", desc: "酸種麵包狂熱者必訪" },
                 { en: "Lori’s Diner", zh: "美式懷舊餐廳", city: "SF", tag: "restaurant", desc: "50年代裝潢風格的復古餐館" },
-                { en: "Cotogna", zh: "義式火烤料理", city: "SF", tag: "restaurant", desc: "米其林等級的精緻義大利菜" },
+                { en: "Market Bar", zh: "市場酒吧", city: "SF", tag: "restaurant", desc: "渡輪大廈內的在地食材餐廳" },
+                { en: "Molinari Delicatessen", zh: "義式熟食店", city: "SF", tag: "restaurant", desc: "傳奇的三明治與義式火腿" },
+                { en: "Shoji", zh: "莊司料理", city: "SJ", tag: "restaurant", desc: "聖荷西在地優質餐飲" },
+                { en: "The Boiling Crab", zh: "美式手抓海鮮", city: "SJ", tag: "restaurant", desc: "經典辣醬拌海鮮桶" },
+                { en: "The Buena Vista", zh: "愛爾蘭咖啡", city: "SF", tag: "restaurant", desc: "愛爾蘭咖啡在美發源地" },
+                { en: "The Coffee Movement", zh: "咖啡運動", city: "SF", tag: "cafe", desc: "小巷裡的頂尖手沖體驗" },
+                { en: "The Mill", zh: "厚切吐司咖啡", city: "SF", tag: "cafe", desc: "極簡設計風格與手工麵包" },
                 { en: "The Spinnaker", zh: "帆船餐廳", city: "Sausalito", tag: "restaurant", desc: "跨海遙望舊金山市景的首選" },
-                { en: "Boudin Bakery", zh: "波丁酸麵包", city: "SF", tag: "restaurant", desc: "著名的酸麵包碗蛤蜊濃湯" },
-                { en: "Market Bar", zh: "市場酒吧", city: "SF", tag: "restaurant", desc: "渡輪大廈內的在地食材餐廳" }
-            ];
+                { en: "Tony’s Pizza Napoletana", zh: "東尼比薩", city: "SF", tag: "restaurant", desc: "多屆比薩冠軍坐鎮" }
+            ], []);
 
             const addEventToItinerary = (e) => {
                 e.preventDefault();
