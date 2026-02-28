@@ -1,228 +1,193 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d7378; -webkit-text-stroke: #6d7378}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #71c083; -webkit-text-stroke: #71c083}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 16.0px}
-    span.s1 {font-kerning: none; background-color: #171818}
-    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171818; -webkit-text-stroke: 0px #8cd3fe}
-    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171818; -webkit-text-stroke: 0px #6d6d6d}
-    span.s4 {font-kerning: none; color: #4689cc; background-color: #171818; -webkit-text-stroke: 0px #4689cc}
-    span.s5 {font-kerning: none; color: #cacaca; background-color: #171818; -webkit-text-stroke: 0px #cacaca}
-    span.s6 {font-kerning: none; color: #c27e65; background-color: #171818; -webkit-text-stroke: 0px #c27e65}
-    span.s7 {font-kerning: none; color: #b76ff7; background-color: #171818; -webkit-text-stroke: 0px #b76ff7}
-    span.s8 {font-kerning: none; color: #d4d4d4; background-color: #171818; -webkit-text-stroke: 0px #d4d4d4}
-    span.s9 {font-kerning: none; color: #71c083; background-color: #171818; -webkit-text-stroke: 0px #71c083}
-    span.s10 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 GTC Planner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">html</span><span class="s5"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s1">"zh-TW"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s6">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s5"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">title</span><span class="s3">&gt;</span><span class="s1">2026 GTC Planner</span><span class="s3">&lt;/</span><span class="s4">title</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Tailwind CSS CDN --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- React &amp; ReactDOM --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/react@18/umd/react.production.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Babel for JSX --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/@babel/standalone/babel.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Lucide Icons --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/lucide@latest"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s7">@import</span><span class="s5"> </span><span class="s6">url</span><span class="s8">(</span><span class="s1">'https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;display=swap'</span><span class="s8">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">body</span><span class="s1"> </span><span class="s8">{</span><span class="s1"> </span><span class="s2">font-family:</span><span class="s1"> </span><span class="s9">'Inter'</span><span class="s8">,</span><span class="s1"> </span><span class="s6">sans-serif</span><span class="s8">;</span><span class="s1"> </span><span class="s8">}</span></p>
-<p class="p1"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.no-scrollbar::-webkit-scrollbar</span><span class="s5"> </span><span class="s8">{</span><span class="s5"> </span><span class="s2">display:</span><span class="s5"> </span><span class="s6">none</span><span class="s8">;</span><span class="s5"> </span><span class="s8">}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s4">.no-scrollbar</span><span class="s5"> </span><span class="s8">{</span><span class="s5"> </span><span class="s1">-ms-overflow-style:</span><span class="s5"> </span><span class="s6">none</span><span class="s8">;</span><span class="s5"> </span><span class="s1">scrollbar-width:</span><span class="s5"> </span><span class="s6">none</span><span class="s8">;</span><span class="s5"> </span><span class="s8">}</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s4">.safe-bottom</span><span class="s5"> </span><span class="s8">{</span><span class="s5"> </span><span class="s2">padding-bottom:</span><span class="s5"> </span><span class="s1">env(safe-area-inset-bottom)</span><span class="s8">;</span><span class="s5"> </span><span class="s8">}</span></p>
-<p class="p1"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">body</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-slate-100"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"root"</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"text/babel"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const { useState, useEffect, useMemo } = React;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>// 模擬 Lucide 圖標組件 (因為 CDN 版本用法不同)</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const Icon = ({ name, className = "w-6 h-6" }) =&gt; {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>useEffect(() =&gt; {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (window.lucide) {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>window.lucide.createIcons();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>}, [name]);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>return &lt;i data-lucide={name} className={className}&gt;&lt;/i&gt;;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const App = () =&gt; {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [activeTab, setActiveTab] = useState('itinerary');</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [selectedDay, setSelectedDay] = useState(0);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [exploreTab, setExploreTab] = useState('attractions');</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const itinerary = [</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ date: '3/13', dayName: '五', events: [{ id: 1, time: '19:40', location: 'SFO Airport', note: '抵達並取車', type: 'transport' }]},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ date: '3/14', dayName: '六', events: [</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>{ id: 2, time: '09:30', location: 'Ferry Building', note: '農夫市集', type: 'food' },</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>{ id: 10, time: '13:00', location: 'Alcatraz Island (惡魔島)', note: '需提前預約船票', type: 'sight' }</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>]},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ date: '3/15', dayName: '日', events: [{ id: 4, time: '10:00', location: 'UC Berkeley', note: '校園參觀', type: 'sight' }]},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ date: '3/16', dayName: '一', events: [{ id: 101, time: '09:00', location: 'San Jose Convention Center', note: '議程開始', type: 'work' }]},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ date: '3/17', dayName: '二', events: [{ id: 102, time: '09:00', location: 'San Jose Convention Center', note: '議程持續', type: 'work' }]},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ date: '3/18', dayName: '三', events: [{ id: 103, time: '09:00', location: 'San Jose Convention Center', note: '議程中', type: 'work' }]},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ date: '3/19', dayName: '四', events: [{ id: 104, time: '09:00', location: 'San Jose Convention Center', note: '最後一天', type: 'work' }]},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ date: '3/20', dayName: '五', events: [{ id: 6, time: '12:00', location: 'SFO Airport', note: '還車搭機', type: 'transport' }]}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>];</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const attractions = [</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ en: "Alcatraz Island", zh: "惡魔島", city: "San Francisco", tag: "culture", desc: "歷史悠久的聯邦監獄，需搭船前往" },</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ en: "Golden Gate Bridge", zh: "金門大橋", city: "San Francisco", tag: "popular", desc: "舊金山最代表性地標" },</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ en: "PIER 39", zh: "39號碼頭", city: "San Francisco", tag: "popular", desc: "看海獅、逛街與美食" },</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ en: "Lombard Street", zh: "九曲花街", city: "San Francisco", tag: "popular", desc: "世界最彎曲迷人街道" },</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ en: "Santana Row", zh: "桑塔納行", city: "San Jose", tag: "popular", desc: "高級露天購物商圈" }</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>].sort((a, b) =&gt; a.en.localeCompare(b.en));</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const restaurants = [</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ en: "The Coffee Movement", zh: "咖啡運動", city: "San Francisco", tag: "cafe", desc: "在地超高評價精品咖啡" },</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ en: "Arsicault Bakery", zh: "知名烘培店", city: "San Francisco", tag: "cafe", desc: "全美公認最佳可頌" },</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>{ en: "Fog Harbor Fish House", zh: "碼頭海鮮餐廳", city: "San Francisco", tag: "restaurant", desc: "漁人碼頭海鮮首選" }</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>].sort((a, b) =&gt; a.en.localeCompare(b.en));</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const getTagStyle = (tag) =&gt; {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>switch(tag) {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>case 'popular': return { bg: 'bg-rose-50', text: 'text-rose-600', icon: 'star', label: '人氣' };</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>case 'nature': return { bg: 'bg-emerald-50', text: 'text-emerald-600', icon: 'leaf', label: '自然' };</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>case 'culture': return { bg: 'bg-indigo-50', text: 'text-indigo-600', icon: 'landmark', label: '文化' };</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>case 'cafe': return { bg: 'bg-orange-50', text: 'text-orange-600', icon: 'coffee', label: '咖啡' };</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>default: return { bg: 'bg-blue-50', text: 'text-blue-600', icon: 'utensils', label: '餐廳' };</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const openGoogleMaps = (name, city = "") =&gt; {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const query = city ? `${name} ${city}` : name;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>window.open(`https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(query)}`, '_blank');</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const currentDayData = itinerary[selectedDay];</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>return (</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="flex flex-col h-screen bg-slate-50 text-slate-900 max-w-md mx-auto shadow-2xl overflow-hidden border-x border-slate-200 relative"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;header className="px-6 pt-10 pb-4 bg-white border-b border-slate-100 sticky top-0 z-40"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div className="flex justify-between items-start"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;h1 className="text-2xl font-black text-blue-600 uppercase tracking-tighter italic"&gt;2026 GTC&lt;/h1&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest border border-slate-100 px-2 py-1 rounded-lg"&gt;Offline Mode&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/header&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;main className="flex-1 overflow-y-auto pb-28 no-scrollbar"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>{activeTab === 'itinerary' &amp;&amp; (</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="p-6"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="flex gap-2 mb-6 overflow-x-auto no-scrollbar pb-2"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>{itinerary.map((day, idx) =&gt; (</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>key={idx}<span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>onClick={() =&gt; setSelectedDay(idx)}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>className={`flex-shrink-0 px-4 py-3 rounded-2xl flex flex-col items-center min-w-[60px] transition-all ${selectedDay === idx ? 'bg-blue-600 text-white shadow-lg' : 'bg-white text-slate-400 border border-slate-100'}`}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;span className="text-[10px] font-bold uppercase"&gt;{day.dayName}&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;span className="text-sm font-black"&gt;{day.date.split('/')[1]}&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>))}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h2 className="text-xl font-black uppercase tracking-tight text-slate-800 mb-6"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>{currentDayData.date} {currentDayData.dayName}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/h2&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="space-y-4"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>{currentDayData.events.map((event) =&gt; (</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div key={event.id} className="bg-white p-5 rounded-[2rem] shadow-sm border border-slate-100"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-lg inline-block mb-3"&gt;{event.time}&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="font-black text-slate-800 block mb-1"&gt;{event.location}&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;p className="text-[10px] text-slate-400 italic leading-relaxed"&gt;{event.note}&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;button onClick={() =&gt; openGoogleMaps(event.location)} className="w-full mt-4 bg-slate-50 py-2.5 rounded-xl text-[10px] font-black text-slate-400 flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;Icon name="navigation" className="w-3 h-3"/&gt; GOOGLE MAPS</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>))}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>)}</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>{activeTab === 'explore' &amp;&amp; (</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="p-6 space-y-4"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="flex bg-slate-200/50 p-1 rounded-2xl mb-6"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;button onClick={() =&gt; setExploreTab('attractions')} className={`flex-1 py-3 rounded-xl text-xs font-black transition-all ${exploreTab === 'attractions' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-400'}`}&gt;SIGHTS&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;button onClick={() =&gt; setExploreTab('food')} className={`flex-1 py-3 rounded-xl text-xs font-black transition-all ${exploreTab === 'food' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-400'}`}&gt;EATS&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>{(exploreTab === 'attractions' ? attractions : restaurants).map((item, idx) =&gt; {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>const tag = getTagStyle(item.tag);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>return (</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div key={idx} className="bg-white p-5 rounded-[2rem] shadow-sm border border-slate-100"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full mb-2 ${tag.bg} ${tag.text}`}&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;Icon name={tag.icon} className="w-3 h-3" /&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;span className="text-[10px] font-black uppercase"&gt;{tag.label}&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;h3 className="font-black text-slate-800 text-lg"&gt;{item.en}&lt;/h3&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;p className="text-[10px] font-bold text-slate-400 mb-2"&gt;{item.zh} · {item.city}&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;p className="text-xs text-slate-500 leading-relaxed bg-slate-50 p-3 rounded-2xl mb-3"&gt;{item.desc}&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;button onClick={() =&gt; openGoogleMaps(item.en, item.city)} className="w-full bg-slate-50 py-3 rounded-xl text-[10px] font-black text-slate-400 flex items-center justify-center gap-2 border border-slate-100 hover:bg-white transition-colors"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;Icon name="navigation" className="w-3 h-3"/&gt; 在地圖上查看</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>})}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>)}</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>{activeTab === 'map' &amp;&amp; (</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="h-full flex flex-col items-center justify-center text-center p-10"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;Icon name="map" className="w-10 h-10 text-blue-500" /&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h2 className="text-2xl font-black mb-4 uppercase tracking-tighter italic text-blue-600"&gt;地圖導覽&lt;/h2&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p className="text-sm text-slate-400 mb-8 leading-relaxed px-4"&gt;前往 Google Maps 查看&lt;br/&gt;舊金山與聖荷西的景點分佈。&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>onClick={() =&gt; window.open('https://www.google.com/maps/search/San+Francisco+and+San+Jose+Attractions', '_blank')}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>className="w-full bg-blue-600 text-white py-4 rounded-3xl font-black text-sm shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform"</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;Icon name="globe" className="w-5 h-5" /&gt; OPEN GOOGLE MAPS</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>)}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/main&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 backdrop-blur-xl border-t border-slate-100 px-8 py-5 flex justify-between rounded-t-[2.5rem] shadow-2xl z-50 safe-bottom"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button onClick={() =&gt; setActiveTab('itinerary')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'itinerary' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;Icon name="calendar" /&gt;&lt;span className="text-[8px] font-black uppercase tracking-widest"&gt;行程&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button onClick={() =&gt; setActiveTab('explore')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'explore' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;Icon name="search" /&gt;&lt;span className="text-[8px] font-black uppercase tracking-widest"&gt;探索&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button onClick={() =&gt; setActiveTab('map')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'map' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;Icon name="map" /&gt;&lt;span className="text-[8px] font-black uppercase tracking-widest"&gt;地圖&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/nav&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const root = ReactDOM.createRoot(document.getElementById('root'));</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>root.render(&lt;App /&gt;);</span></p>
-<p class="p1"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<body class="bg-slate-100">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const Icon = ({ name, className = "w-6 h-6" }) => {
+            useEffect(() => {
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            }, [name]);
+            return <i data-lucide={name} className={className}></i>;
+        };
+
+        const App = () => {
+            const [activeTab, setActiveTab] = useState('itinerary');
+            const [selectedDay, setSelectedDay] = useState(0);
+            const [exploreTab, setExploreTab] = useState('attractions');
+
+            const itinerary = [
+                { date: '3/13', dayName: '五', events: [{ id: 1, time: '19:40', location: 'SFO Airport', note: '抵達並取車', type: 'transport' }]},
+                { date: '3/14', dayName: '六', events: [
+                    { id: 2, time: '09:30', location: 'Ferry Building', note: '農夫市集', type: 'food' },
+                    { id: 10, time: '13:00', location: 'Alcatraz Island (惡魔島)', note: '需提前預約船票', type: 'sight' }
+                ]},
+                { date: '3/15', dayName: '日', events: [{ id: 4, time: '10:00', location: 'UC Berkeley', note: '校園參觀', type: 'sight' }]},
+                { date: '3/16', dayName: '一', events: [{ id: 101, time: '09:00', location: 'San Jose Convention Center', note: '議程開始', type: 'work' }]},
+                { date: '3/17', dayName: '二', events: [{ id: 102, time: '09:00', location: 'San Jose Convention Center', note: '議程持續', type: 'work' }]},
+                { date: '3/18', dayName: '三', events: [{ id: 103, time: '09:00', location: 'San Jose Convention Center', note: '議程中', type: 'work' }]},
+                { date: '3/19', dayName: '四', events: [{ id: 104, time: '09:00', location: 'San Jose Convention Center', note: '最後一天', type: 'work' }]},
+                { date: '3/20', dayName: '五', events: [{ id: 6, time: '12:00', location: 'SFO Airport', note: '還車搭機', type: 'transport' }]}
+            ];
+
+            const attractions = [
+                { en: "Alcatraz Island", zh: "惡魔島", city: "San Francisco", tag: "culture", desc: "歷史悠久的聯邦監獄，需搭船前往" },
+                { en: "Golden Gate Bridge", zh: "金門大橋", city: "San Francisco", tag: "popular", desc: "舊金山最代表性地標" },
+                { en: "PIER 39", zh: "39號碼頭", city: "San Francisco", tag: "popular", desc: "看海獅、逛街與美食" },
+                { en: "Lombard Street", zh: "九曲花街", city: "San Francisco", tag: "popular", desc: "世界最彎曲迷人街道" },
+                { en: "Santana Row", zh: "桑塔納行", city: "San Jose", tag: "popular", desc: "高級露天購物商圈" }
+            ].sort((a, b) => a.en.localeCompare(b.en));
+
+            const restaurants = [
+                { en: "The Coffee Movement", zh: "咖啡運動", city: "San Francisco", tag: "cafe", desc: "在地超高評價精品咖啡" },
+                { en: "Arsicault Bakery", zh: "知名烘培店", city: "San Francisco", tag: "cafe", desc: "全美公認最佳可頌" },
+                { en: "Fog Harbor Fish House", zh: "碼頭海鮮餐廳", city: "San Francisco", tag: "restaurant", desc: "漁人碼頭海鮮首選" }
+            ].sort((a, b) => a.en.localeCompare(b.en));
+
+            const getTagStyle = (tag) => {
+                switch(tag) {
+                    case 'popular': return { bg: 'bg-rose-50', text: 'text-rose-600', icon: 'star', label: '人氣' };
+                    case 'nature': return { bg: 'bg-emerald-50', text: 'text-emerald-600', icon: 'leaf', label: '自然' };
+                    case 'culture': return { bg: 'bg-indigo-50', text: 'text-indigo-600', icon: 'landmark', label: '文化' };
+                    case 'cafe': return { bg: 'bg-orange-50', text: 'text-orange-600', icon: 'coffee', label: '咖啡' };
+                    default: return { bg: 'bg-blue-50', text: 'text-blue-600', icon: 'utensils', label: '餐廳' };
+                }
+            };
+
+            const openGoogleMaps = (name, city = "") => {
+                const query = city ? `${name} ${city}` : name;
+                window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`, '_blank');
+            };
+
+            const currentDayData = itinerary[selectedDay];
+
+            return (
+                <div className="flex flex-col h-screen bg-slate-50 text-slate-900 max-w-md mx-auto shadow-2xl overflow-hidden border-x border-slate-200 relative">
+                    <header className="px-6 pt-10 pb-4 bg-white border-b border-slate-100 sticky top-0 z-40">
+                        <div className="flex justify-between items-start">
+                            <h1 className="text-2xl font-black text-blue-600 uppercase tracking-tighter italic">2026 GTC</h1>
+                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest border border-slate-100 px-2 py-1 rounded-lg">Offline Mode</span>
+                        </div>
+                    </header>
+
+                    <main className="flex-1 overflow-y-auto pb-28 no-scrollbar">
+                        {activeTab === 'itinerary' && (
+                            <div className="p-6">
+                                <div className="flex gap-2 mb-6 overflow-x-auto no-scrollbar pb-2">
+                                    {itinerary.map((day, idx) => (
+                                        <button 
+                                            key={idx} 
+                                            onClick={() => setSelectedDay(idx)}
+                                            className={`flex-shrink-0 px-4 py-3 rounded-2xl flex flex-col items-center min-w-[60px] transition-all ${selectedDay === idx ? 'bg-blue-600 text-white shadow-lg' : 'bg-white text-slate-400 border border-slate-100'}`}
+                                        >
+                                            <span className="text-[10px] font-bold uppercase">{day.dayName}</span>
+                                            <span className="text-sm font-black">{day.date.split('/')[1]}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                                <h2 className="text-xl font-black uppercase tracking-tight text-slate-800 mb-6">
+                                    {currentDayData.date} {currentDayData.dayName}
+                                </h2>
+                                <div className="space-y-4">
+                                    {currentDayData.events.map((event) => (
+                                        <div key={event.id} className="bg-white p-5 rounded-[2rem] shadow-sm border border-slate-100">
+                                            <div className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-lg inline-block mb-3">{event.time}</div>
+                                            <div className="font-black text-slate-800 block mb-1">{event.location}</div>
+                                            <p className="text-[10px] text-slate-400 italic leading-relaxed">{event.note}</p>
+                                            <button onClick={() => openGoogleMaps(event.location)} className="w-full mt-4 bg-slate-50 py-2.5 rounded-xl text-[10px] font-black text-slate-400 flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors">
+                                                <Icon name="navigation" className="w-3 h-3"/> GOOGLE MAPS
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {activeTab === 'explore' && (
+                            <div className="p-6 space-y-4">
+                                <div className="flex bg-slate-200/50 p-1 rounded-2xl mb-6">
+                                    <button onClick={() => setExploreTab('attractions')} className={`flex-1 py-3 rounded-xl text-xs font-black transition-all ${exploreTab === 'attractions' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-400'}`}>SIGHTS</button>
+                                    <button onClick={() => setExploreTab('food')} className={`flex-1 py-3 rounded-xl text-xs font-black transition-all ${exploreTab === 'food' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-400'}`}>EATS</button>
+                                </div>
+                                {(exploreTab === 'attractions' ? attractions : restaurants).map((item, idx) => {
+                                    const tag = getTagStyle(item.tag);
+                                    return (
+                                        <div key={idx} className="bg-white p-5 rounded-[2rem] shadow-sm border border-slate-100">
+                                            <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full mb-2 ${tag.bg} ${tag.text}`}>
+                                                <Icon name={tag.icon} className="w-3 h-3" />
+                                                <span className="text-[10px] font-black uppercase">{tag.label}</span>
+                                            </div>
+                                            <h3 className="font-black text-slate-800 text-lg">{item.en}</h3>
+                                            <p className="text-[10px] font-bold text-slate-400 mb-2">{item.zh} · {item.city}</p>
+                                            <p className="text-xs text-slate-500 leading-relaxed bg-slate-50 p-3 rounded-2xl mb-3">{item.desc}</p>
+                                            <button onClick={() => openGoogleMaps(item.en, item.city)} className="w-full bg-slate-50 py-3 rounded-xl text-[10px] font-black text-slate-400 flex items-center justify-center gap-2 border border-slate-100 hover:bg-white transition-colors">
+                                                <Icon name="navigation" className="w-3 h-3"/> 在地圖上查看
+                                            </button>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
+
+                        {activeTab === 'map' && (
+                            <div className="h-full flex flex-col items-center justify-center text-center p-10">
+                                <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                                    <Icon name="map" className="w-10 h-10 text-blue-500" />
+                                </div>
+                                <h2 className="text-2xl font-black mb-4 uppercase tracking-tighter italic text-blue-600">地圖導覽</h2>
+                                <p className="text-sm text-slate-400 mb-8 leading-relaxed px-4">前往 Google Maps 查看<br/>舊金山與聖荷西的景點分佈。</p>
+                                <button 
+                                    onClick={() => window.open('https://www.google.com/maps/search/San+Francisco+and+San+Jose+Attractions', '_blank')}
+                                    className="w-full bg-blue-600 text-white py-4 rounded-3xl font-black text-sm shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform"
+                                >
+                                    <Icon name="globe" className="w-5 h-5" /> OPEN GOOGLE MAPS
+                                </button>
+                            </div>
+                        )}
+                    </main>
+
+                    <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 backdrop-blur-xl border-t border-slate-100 px-8 py-5 flex justify-between rounded-t-[2.5rem] shadow-2xl z-50 safe-bottom">
+                        <button onClick={() => setActiveTab('itinerary')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'itinerary' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}>
+                            <Icon name="calendar" /><span className="text-[8px] font-black uppercase tracking-widest">行程</span>
+                        </button>
+                        <button onClick={() => setActiveTab('explore')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'explore' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}>
+                            <Icon name="search" /><span className="text-[8px] font-black uppercase tracking-widest">探索</span>
+                        </button>
+                        <button onClick={() => setActiveTab('map')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'map' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}>
+                            <Icon name="map" /><span className="text-[8px] font-black uppercase tracking-widest">地圖</span>
+                        </button>
+                    </nav>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
