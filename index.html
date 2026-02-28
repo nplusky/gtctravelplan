@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 GTC Planner - Full</title>
+    <title>2026 GTC Planner - Full Exploration</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- React & ReactDOM -->
@@ -25,7 +25,7 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect, useMemo } = React;
+        const { useState, useEffect } = React;
 
         const Icon = ({ name, className = "w-6 h-6" }) => {
             useEffect(() => {
@@ -42,40 +42,77 @@
             const [exploreTab, setExploreTab] = useState('attractions');
             const [isAdding, setIsAdding] = useState(false);
             
-            // 初始行程數據
+            // 行程數據
             const [itinerary, setItinerary] = useState([
                 { date: '3/13', dayName: '五', events: [{ id: 1, time: '19:40', location: 'SFO Airport', note: '抵達並取車', type: 'transport' }]},
                 { date: '3/14', dayName: '六', events: [
                     { id: 2, time: '09:30', location: 'Ferry Building', note: '農夫市集', type: 'food' },
-                    { id: 10, time: '13:00', location: 'Alcatraz Island (惡魔島)', note: '需提前預約船票', type: 'sight' }
+                    { id: 10, time: '13:00', location: 'Alcatraz Island', note: '惡魔島預約', type: 'sight' }
                 ]},
                 { date: '3/15', dayName: '日', events: [{ id: 4, time: '10:00', location: 'UC Berkeley', note: '校園參觀', type: 'sight' }]},
-                { date: '3/16', dayName: '一', events: [{ id: 101, time: '09:00', location: 'San Jose Convention Center', note: '議程開始', type: 'work' }]},
-                { date: '3/17', dayName: '二', events: [{ id: 102, time: '09:00', location: 'San Jose Convention Center', note: '議程持續', type: 'work' }]},
-                { date: '3/18', dayName: '三', events: [{ id: 103, time: '09:00', location: 'San Jose Convention Center', note: '議程中', type: 'work' }]},
-                { date: '3/19', dayName: '四', events: [{ id: 104, time: '09:00', location: 'San Jose Convention Center', note: '最後一天', type: 'work' }]},
+                { date: '3/16', dayName: '一', events: [{ id: 101, time: '09:00', location: 'San Jose Convention Center', note: 'GTC 議程開始', type: 'work' }]},
+                { date: '3/17', dayName: '二', events: [{ id: 102, time: '09:00', location: 'San Jose Convention Center', note: 'GTC Day 2', type: 'work' }]},
+                { date: '3/18', dayName: '三', events: [{ id: 103, time: '09:00', location: 'San Jose Convention Center', note: 'GTC Day 3', type: 'work' }]},
+                { date: '3/19', dayName: '四', events: [{ id: 104, time: '09:00', location: 'San Jose Convention Center', note: 'GTC 最後一天', type: 'work' }]},
                 { date: '3/20', dayName: '五', events: [{ id: 6, time: '12:00', location: 'SFO Airport', note: '還車搭機', type: 'transport' }]}
             ]);
 
-            // 完整探索清單
+            // 完整探索清單 (約 32 個景點)
             const attractions = [
-                { en: "Alcatraz Island", zh: "惡魔島", city: "San Francisco", tag: "culture", desc: "歷史悠久的聯邦監獄，需搭船前往" },
-                { en: "Golden Gate Bridge", zh: "金門大橋", city: "San Francisco", tag: "popular", desc: "舊金山最代表性地標" },
-                { en: "PIER 39", zh: "39號碼頭", city: "San Francisco", tag: "popular", desc: "看海獅、逛街與美食" },
-                { en: "Lombard Street", zh: "九曲花街", city: "San Francisco", tag: "popular", desc: "世界最彎曲迷人街道" },
-                { en: "Santana Row", zh: "桑塔納行", city: "San Jose", tag: "popular", desc: "高級露天購物商圈" },
-                { en: "Sausalito", zh: "莎莎利托", city: "North Bay", tag: "nature", desc: "充滿地中海風情的海濱小鎮" },
-                { en: "Muir Woods", zh: "穆爾紅木林", city: "North Bay", tag: "nature", desc: "壯觀的巨型紅木森林步道" },
-                { en: "Stanford University", zh: "史丹佛大學", city: "Palo Alto", tag: "culture", desc: "矽谷頂尖學府，校園極美" }
+                { en: "Alcatraz Island", zh: "惡魔島", city: "SF", tag: "culture", desc: "歷史聯邦監獄，需搭船" },
+                { en: "Golden Gate Bridge", zh: "金門大橋", city: "SF", tag: "popular", desc: "舊金山最地標性建築" },
+                { en: "PIER 39", zh: "39號碼頭", city: "SF", tag: "popular", desc: "海獅、購物與碼頭氛圍" },
+                { en: "Lombard Street", zh: "九曲花街", city: "SF", tag: "popular", desc: "世界最彎曲街道" },
+                { en: "Palace of Fine Arts", zh: "藝術宮", city: "SF", tag: "culture", desc: "優美羅馬式圓頂建築" },
+                { en: "Painted Ladies", zh: "彩繪女士", city: "SF", tag: "culture", desc: "六姊妹維多利亞式房屋" },
+                { en: "Coit Tower", zh: "柯伊特塔", city: "SF", tag: "popular", desc: "俯瞰全城景色的高塔" },
+                { en: "Sausalito", zh: "莎莎利托", city: "North Bay", tag: "nature", desc: "海濱藝術小鎮" },
+                { en: "Muir Woods", zh: "穆爾紅木林", city: "North Bay", tag: "nature", desc: "壯觀紅木林步道" },
+                { en: "Stanford University", zh: "史丹佛大學", city: "Palo Alto", tag: "culture", desc: "頂尖學府美景" },
+                { en: "Apple Park Visitor Center", zh: "蘋果總部中心", city: "Cupertino", tag: "popular", desc: "果粉必訪朝聖地" },
+                { en: "Googleplex", zh: "Google 總部", city: "Mountain View", tag: "popular", desc: "Google 園區參觀" },
+                { en: "Santana Row", zh: "桑塔納行", city: "San Jose", tag: "popular", desc: "頂級露天購物區" },
+                { en: "Winchester Mystery House", zh: "溫徹斯特神秘屋", city: "San Jose", tag: "culture", desc: "著名的古怪建築" },
+                { en: "Twin Peaks", zh: "雙峰山", city: "SF", tag: "nature", desc: "夜景與全景最佳點" },
+                { en: "Salesforce Park", zh: "空中花園", city: "SF", tag: "nature", desc: "市中心絕美懸空公園" },
+                { en: "Union Square", zh: "聯合廣場", city: "SF", tag: "popular", desc: "購物與聖誕氣氛中心" },
+                { en: "Lands End", zh: "海角天涯", city: "SF", tag: "nature", desc: "太平洋沿岸步道" },
+                { en: "California Academy of Sciences", zh: "加州科學院", city: "SF", tag: "culture", desc: "有活屋頂的博物館" },
+                { en: "Ghirardelli Square", zh: "巧克力廣場", city: "SF", tag: "food", desc: "經典巧克力聖代來源" },
+                { en: "Fisherman's Wharf", zh: "漁人碼頭", city: "SF", tag: "popular", desc: "觀光客必訪區域" },
+                { en: "Exploratorium", zh: "探索博物館", city: "SF", tag: "culture", desc: "互動式科學體驗" },
+                { en: "Ferry Building", zh: "渡輪大廈", city: "SF", tag: "food", desc: "美食市集首選" },
+                { en: "Oracle Park", zh: "巨人隊球場", city: "SF", tag: "popular", desc: "全美最美球場之一" },
+                { en: "Chinatown", zh: "舊金山唐人街", city: "SF", tag: "culture", desc: "北美歷史最久唐人街" },
+                { en: "Grace Cathedral", zh: "恩典座堂", city: "SF", tag: "culture", desc: "哥德式宏偉教堂" },
+                { en: "Salesforce Tower", zh: "Salesforce 塔", city: "SF", tag: "popular", desc: "舊金山最高地標" },
+                { en: "Mission Dolores Park", zh: "多洛雷斯公園", city: "SF", tag: "popular", desc: "在地人野餐勝地" },
+                { en: "Golden Gate Park", zh: "金門公園", city: "SF", tag: "nature", desc: "規模龐大的城市公園" },
+                { en: "Ocean Beach", zh: "海洋沙灘", city: "SF", tag: "nature", desc: "夕陽與海浪" },
+                { en: "Computer History Museum", zh: "電腦歷史博物館", city: "MV", tag: "culture", desc: "科技愛好者必訪" },
+                { en: "Intel Museum", zh: "Intel 博物館", city: "Santa Clara", tag: "culture", desc: "了解晶片發展史" }
             ].sort((a, b) => a.en.localeCompare(b.en));
 
+            // 完整美食清單 (約 18 個)
             const restaurants = [
-                { en: "The Coffee Movement", zh: "咖啡運動", city: "San Francisco", tag: "cafe", desc: "在地超高評價精品咖啡" },
-                { en: "Arsicault Bakery", zh: "知名烘培店", city: "San Francisco", tag: "cafe", desc: "全美公認最佳可頌" },
-                { en: "Fog Harbor Fish House", zh: "碼頭海鮮餐廳", city: "San Francisco", tag: "restaurant", desc: "漁人碼頭海鮮首選" },
-                { en: "In-N-Out Burger", zh: "經典漢堡", city: "Bay Area", tag: "popular", desc: "加州必吃的傳奇漢堡店" },
-                { en: "Tartine Bakery", zh: "知名麵包坊", city: "San Francisco", tag: "cafe", desc: "著名的酸種麵包與甜點" },
-                { en: "Philz Coffee", zh: "薄荷咖啡", city: "Bay Area", tag: "cafe", desc: "獨特的 Mint Mojito 必點" }
+                { en: "The Coffee Movement", zh: "咖啡運動", city: "SF", tag: "cafe", desc: "頂級精品咖啡" },
+                { en: "Arsicault Bakery", zh: "知名烘培店", city: "SF", tag: "cafe", desc: "全美最佳可頌" },
+                { en: "Fog Harbor Fish House", zh: "碼頭海鮮", city: "SF", tag: "restaurant", desc: "經典龍蝦Roll" },
+                { en: "In-N-Out Burger", zh: "經典漢堡", city: "Bay Area", tag: "popular", desc: "加州靈魂速食" },
+                { en: "Tartine Bakery", zh: "名廚麵包坊", city: "SF", tag: "cafe", desc: "酸種麵包天花板" },
+                { en: "Philz Coffee", zh: "薄荷咖啡", city: "Bay Area", tag: "cafe", desc: "在地特調咖啡" },
+                { en: "State Bird Provisions", zh: "州鳥餐廳", city: "SF", tag: "restaurant", desc: "米其林一星創意菜" },
+                { en: "House of Prime Rib", zh: "牛排屋", city: "SF", tag: "restaurant", desc: "經典英式牛肋排" },
+                { en: "Swan Oyster Depot", zh: "天鵝蠔屋", city: "SF", tag: "restaurant", desc: "傳奇海鮮老店" },
+                { en: "Sotto Mare", zh: "海鮮義麵", city: "SF", tag: "restaurant", desc: "最猛海鮮湯義大利麵" },
+                { en: "Mr. Holmes Bakehouse", zh: "霍姆斯烘焙", city: "SF", tag: "cafe", desc: "Cruffin 創始店" },
+                { en: "Sightglass Coffee", zh: "精品咖啡", city: "SF", tag: "cafe", desc: "寬敞工業風空間" },
+                { en: "Ramen Nagi", zh: "凪拉麵", city: "Palo Alto", tag: "restaurant", desc: "矽谷最夯拉麵" },
+                { en: "Boba Guys", zh: "珍珠奶茶", city: "SF/SJ", tag: "popular", desc: "美式精緻手搖飲" },
+                { en: "Alexander's Steakhouse", zh: "亞歷山大牛排", city: "Cupertino", tag: "restaurant", desc: "頂級日美和牛" },
+                { en: "Lazy Dog Restaurant", zh: "懶狗餐廳", city: "Cupertino", tag: "restaurant", desc: "在地熱門聚會點" },
+                { en: "San Tung", zh: "山東館", city: "SF", tag: "restaurant", desc: "著名的乾烹雞翅" },
+                { en: "Humphry Slocombe", zh: "特色冰淇淋", city: "SF", tag: "popular", desc: "鵝肝、波本威士忌口味" }
             ].sort((a, b) => a.en.localeCompare(b.en));
 
             const addEvent = (e) => {
@@ -88,10 +125,8 @@
                     note: formData.get('note'),
                     type: 'manual'
                 };
-                
                 const updatedItinerary = [...itinerary];
                 updatedItinerary[selectedDay].events.push(newEvent);
-                // 按時間排序
                 updatedItinerary[selectedDay].events.sort((a, b) => a.time.localeCompare(b.time));
                 setItinerary(updatedItinerary);
                 setIsAdding(false);
@@ -108,7 +143,7 @@
             };
 
             const openGoogleMaps = (name, city = "") => {
-                const query = city ? `${name} ${city}` : name;
+                const query = `${name} ${city}`;
                 window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`, '_blank');
             };
 
@@ -127,46 +162,39 @@
 
                     <main className="flex-1 overflow-y-auto pb-28 no-scrollbar">
                         {activeTab === 'itinerary' && (
-                            <div className="p-6">
+                            <div className="p-6 animate-in fade-in duration-500">
                                 <div className="flex gap-2 mb-6 overflow-x-auto no-scrollbar pb-2">
                                     {itinerary.map((day, idx) => (
-                                        <button 
-                                            key={idx} 
-                                            onClick={() => setSelectedDay(idx)}
-                                            className={`flex-shrink-0 px-4 py-3 rounded-2xl flex flex-col items-center min-w-[60px] transition-all ${selectedDay === idx ? 'bg-blue-600 text-white shadow-lg' : 'bg-white text-slate-400 border border-slate-100'}`}
-                                        >
+                                        <button key={idx} onClick={() => setSelectedDay(idx)} className={`flex-shrink-0 px-4 py-3 rounded-2xl flex flex-col items-center min-w-[60px] transition-all ${selectedDay === idx ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-white text-slate-400 border border-slate-100'}`}>
                                             <span className="text-[10px] font-bold uppercase">{day.dayName}</span>
                                             <span className="text-sm font-black">{day.date.split('/')[1]}</span>
                                         </button>
                                     ))}
                                 </div>
-                                <h2 className="text-xl font-black uppercase tracking-tight text-slate-800 mb-6 flex justify-between items-center">
+                                <h2 className="text-xl font-black text-slate-800 mb-6 flex justify-between items-center">
                                     <span>{currentDayData.date} {currentDayData.dayName}</span>
-                                    <span className="text-[10px] text-slate-400 bg-slate-100 px-2 py-1 rounded-md">{currentDayData.events.length} EVENTS</span>
+                                    <span className="text-[10px] text-slate-400 bg-slate-100 px-2 py-1 rounded-md">{currentDayData.events.length} 項行程</span>
                                 </h2>
                                 <div className="space-y-4">
                                     {currentDayData.events.map((event) => (
-                                        <div key={event.id} className="bg-white p-5 rounded-[2rem] shadow-sm border border-slate-100 group relative">
+                                        <div key={event.id} className="bg-white p-5 rounded-[2rem] shadow-sm border border-slate-100">
                                             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-lg inline-block mb-3">{event.time}</div>
                                             <div className="font-black text-slate-800 block mb-1">{event.location}</div>
                                             <p className="text-[10px] text-slate-400 italic leading-relaxed">{event.note}</p>
-                                            <button onClick={() => openGoogleMaps(event.location)} className="w-full mt-4 bg-slate-50 py-2.5 rounded-xl text-[10px] font-black text-slate-400 flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors">
+                                            <button onClick={() => openGoogleMaps(event.location)} className="w-full mt-4 bg-slate-50 py-2.5 rounded-xl text-[10px] font-black text-slate-400 flex items-center justify-center gap-2">
                                                 <Icon name="navigation" className="w-3 h-3"/> GOOGLE MAPS
                                             </button>
                                         </div>
                                     ))}
-                                    {currentDayData.events.length === 0 && (
-                                        <div className="text-center py-20 text-slate-300 italic font-medium">今天還沒有行程...</div>
-                                    )}
                                 </div>
                             </div>
                         )}
 
                         {activeTab === 'explore' && (
-                            <div className="p-6 space-y-4">
-                                <div className="flex bg-slate-200/50 p-1 rounded-2xl mb-6">
-                                    <button onClick={() => setExploreTab('attractions')} className={`flex-1 py-3 rounded-xl text-xs font-black transition-all ${exploreTab === 'attractions' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-400'}`}>SIGHTS</button>
-                                    <button onClick={() => setExploreTab('food')} className={`flex-1 py-3 rounded-xl text-xs font-black transition-all ${exploreTab === 'food' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-400'}`}>EATS</button>
+                            <div className="p-6 space-y-4 animate-in fade-in duration-500">
+                                <div className="flex bg-slate-200/50 p-1 rounded-2xl mb-6 sticky top-0 z-30">
+                                    <button onClick={() => setExploreTab('attractions')} className={`flex-1 py-3 rounded-xl text-xs font-black transition-all ${exploreTab === 'attractions' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-400'}`}>景點 ({attractions.length})</button>
+                                    <button onClick={() => setExploreTab('food')} className={`flex-1 py-3 rounded-xl text-xs font-black transition-all ${exploreTab === 'food' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-400'}`}>美食 ({restaurants.length})</button>
                                 </div>
                                 {(exploreTab === 'attractions' ? attractions : restaurants).map((item, idx) => {
                                     const tag = getTagStyle(item.tag);
@@ -179,8 +207,8 @@
                                             <h3 className="font-black text-slate-800 text-lg">{item.en}</h3>
                                             <p className="text-[10px] font-bold text-slate-400 mb-2">{item.zh} · {item.city}</p>
                                             <p className="text-xs text-slate-500 leading-relaxed bg-slate-50 p-3 rounded-2xl mb-3">{item.desc}</p>
-                                            <button onClick={() => openGoogleMaps(item.en, item.city)} className="w-full bg-slate-50 py-3 rounded-xl text-[10px] font-black text-slate-400 flex items-center justify-center gap-2 border border-slate-100 hover:bg-white transition-colors">
-                                                <Icon name="navigation" className="w-3 h-3"/> 在地圖上查看
+                                            <button onClick={() => openGoogleMaps(item.en, item.city)} className="w-full bg-slate-50 py-3 rounded-xl text-[10px] font-black text-slate-400 flex items-center justify-center gap-2 border border-slate-100">
+                                                <Icon name="navigation" className="w-3 h-3"/> 地圖查看
                                             </button>
                                         </div>
                                     );
@@ -189,45 +217,42 @@
                         )}
 
                         {activeTab === 'map' && (
-                            <div className="h-full flex flex-col items-center justify-center text-center p-10">
-                                <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6">
-                                    <Icon name="map" className="w-10 h-10 text-blue-500" />
+                            <div className="h-full flex flex-col items-center justify-center p-10 animate-in zoom-in duration-500">
+                                <div className="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                                    <Icon name="map" className="w-12 h-12 text-blue-500" />
                                 </div>
-                                <h2 className="text-2xl font-black mb-4 uppercase tracking-tighter italic text-blue-600">地圖導覽</h2>
-                                <p className="text-sm text-slate-400 mb-8 leading-relaxed px-4">前往 Google Maps 查看<br/>舊金山與聖荷西的景點分佈。</p>
-                                <button 
-                                    onClick={() => window.open('https://www.google.com/maps/search/San+Francisco+and+San+Jose+Attractions', '_blank')}
-                                    className="w-full bg-blue-600 text-white py-4 rounded-3xl font-black text-sm shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform"
-                                >
-                                    <Icon name="globe" className="w-5 h-5" /> OPEN GOOGLE MAPS
+                                <h2 className="text-2xl font-black mb-4 uppercase text-blue-600 italic">地圖導覽</h2>
+                                <p className="text-sm text-slate-400 mb-8 leading-relaxed px-4 text-center">開啟 Google Maps 查看灣區景點<br/>快速掌握舊金山與聖荷西地圖</p>
+                                <button onClick={() => window.open('https://www.google.com/maps/search/San+Francisco+and+San+Jose+Attractions', '_blank')} className="w-full bg-blue-600 text-white py-4 rounded-3xl font-black text-sm shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform">
+                                    <Icon name="globe" className="w-5 h-5" /> 全屏地圖
                                 </button>
                             </div>
                         )}
                     </main>
 
-                    {/* 新增行程彈窗 */}
+                    {/* 新增彈窗 */}
                     {isAdding && (
                         <div className="fixed inset-0 z-[60] flex items-end justify-center px-4 pb-10">
                             <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setIsAdding(false)}></div>
                             <form onSubmit={addEvent} className="relative w-full max-w-sm bg-white rounded-[3rem] p-8 shadow-2xl animate-in slide-in-from-bottom duration-300">
-                                <h3 className="text-xl font-black mb-6 text-slate-800 uppercase">ADD NEW EVENT</h3>
+                                <h3 className="text-xl font-black mb-6 text-slate-800 uppercase italic">新增行程</h3>
                                 <div className="space-y-4 mb-8">
                                     <div>
-                                        <label className="text-[10px] font-black text-slate-400 uppercase mb-2 block">TIME</label>
-                                        <input required name="time" type="time" className="w-full bg-slate-50 border-none rounded-2xl px-4 py-3 font-bold text-slate-700" />
+                                        <label className="text-[10px] font-black text-slate-400 mb-2 block uppercase">時間</label>
+                                        <input required name="time" type="time" className="w-full bg-slate-50 border-none rounded-2xl px-4 py-3 font-bold" />
                                     </div>
                                     <div>
-                                        <label className="text-[10px] font-black text-slate-400 uppercase mb-2 block">LOCATION</label>
-                                        <input required name="location" type="text" placeholder="e.g. Apple Park" className="w-full bg-slate-50 border-none rounded-2xl px-4 py-3 font-bold text-slate-700 placeholder:text-slate-300" />
+                                        <label className="text-[10px] font-black text-slate-400 mb-2 block uppercase">地點</label>
+                                        <input required name="location" type="text" placeholder="例如：Apple Park" className="w-full bg-slate-50 border-none rounded-2xl px-4 py-3 font-bold" />
                                     </div>
                                     <div>
-                                        <label className="text-[10px] font-black text-slate-400 uppercase mb-2 block">NOTES</label>
-                                        <textarea name="note" placeholder="Optional details..." className="w-full bg-slate-50 border-none rounded-2xl px-4 py-3 font-bold text-slate-700 h-24 resize-none placeholder:text-slate-300"></textarea>
+                                        <label className="text-[10px] font-black text-slate-400 mb-2 block uppercase">備註</label>
+                                        <textarea name="note" placeholder="可選..." className="w-full bg-slate-50 border-none rounded-2xl px-4 py-3 font-bold h-24 resize-none"></textarea>
                                     </div>
                                 </div>
                                 <div className="flex gap-3">
-                                    <button type="button" onClick={() => setIsAdding(false)} className="flex-1 py-4 bg-slate-100 text-slate-400 rounded-2xl font-black text-xs uppercase tracking-widest">Cancel</button>
-                                    <button type="submit" className="flex-[2] py-4 bg-blue-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-blue-200">Save Event</button>
+                                    <button type="button" onClick={() => setIsAdding(false)} className="flex-1 py-4 bg-slate-100 text-slate-400 rounded-2xl font-black text-xs uppercase">取消</button>
+                                    <button type="submit" className="flex-[2] py-4 bg-blue-600 text-white rounded-2xl font-black text-xs uppercase shadow-lg shadow-blue-200">儲存</button>
                                 </div>
                             </form>
                         </div>
@@ -235,13 +260,13 @@
 
                     <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 backdrop-blur-xl border-t border-slate-100 px-8 py-5 flex justify-between rounded-t-[2.5rem] shadow-2xl z-50 safe-bottom">
                         <button onClick={() => setActiveTab('itinerary')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'itinerary' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}>
-                            <Icon name="calendar" /><span className="text-[8px] font-black uppercase tracking-widest">行程</span>
+                            <Icon name="calendar" /><span className="text-[8px] font-black uppercase">行程</span>
                         </button>
                         <button onClick={() => setActiveTab('explore')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'explore' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}>
-                            <Icon name="search" /><span className="text-[8px] font-black uppercase tracking-widest">探索</span>
+                            <Icon name="search" /><span className="text-[8px] font-black uppercase">探索</span>
                         </button>
                         <button onClick={() => setActiveTab('map')} className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'map' ? 'text-blue-600 scale-110' : 'text-slate-300'}`}>
-                            <Icon name="map" /><span className="text-[8px] font-black uppercase tracking-widest">地圖</span>
+                            <Icon name="map" /><span className="text-[8px] font-black uppercase">地圖</span>
                         </button>
                     </nav>
                 </div>
